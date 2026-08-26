@@ -22,28 +22,28 @@
 }
 
 .hero-title {
-  font-family: 'Cinzel', serif;
-  font-size: 7vw;
+  font-family: 'Dancing Script', cursive;
+  font-size: 8vw;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   line-height: 1.1;
-  text-shadow: 0 0 40px rgba(255, 77, 133, 0.4);
+  text-shadow: 0 0 40px rgba(255, 143, 163, 0.5);
 }
 
 .ampersand {
   color: var(--primary);
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 400;
-  margin: 0 20px;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  margin: 0 15px;
 }
 
 .hero-subtitle {
-  margin-top: 2rem;
-  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   text-transform: uppercase;
 }
 
@@ -53,9 +53,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--glass-highlight);
-  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
   letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .scroll-indicator svg {
@@ -96,22 +97,23 @@
   left: 50%;
   transform: translateX(-50%);
   color: var(--primary);
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .quote-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-style: italic;
-  line-height: 1.6;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  line-height: 1.4;
   margin-bottom: 2rem;
+  color: var(--text-main);
 }
 
 .quote-author {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--text-muted);
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 footer {
@@ -119,17 +121,18 @@ footer {
   text-align: center;
   padding: 3rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
   border-top: 1px solid var(--glass-border);
   margin-top: 4rem;
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 12vw;
+    font-size: 15vw;
   }
   .quote-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .quote-container {
     padding: 2rem;

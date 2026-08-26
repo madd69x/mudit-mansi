@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary: #ff4d85;
-  --secondary: #ff7eb3;
-  --bg-dark: #0f0514;
-  --bg-light: #1c0a24;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.2);
-  --text-main: #ffffff;
-  --text-muted: #ffb3c6;
+  --primary: #ff8fa3;
+  --secondary: #ffb3c6;
+  --bg-dark: #fff0f3; /* Light pastel background */
+  --bg-light: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.6); /* White frosted glass */
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --text-main: #590d22; /* Soft deep red for readability */
+  --text-muted: #800f2f; 
 }
 
 * {
@@ -19,13 +19,13 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: var(--text-main);
   background-color: var(--bg-dark);
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: radial-gradient(circle at 15% 50%, rgba(255, 77, 133, 0.15), transparent 25%),
-                    radial-gradient(circle at 85% 30%, rgba(142, 45, 226, 0.15), transparent 25%);
+  background-image: radial-gradient(circle at 15% 50%, rgba(255, 200, 221, 0.5), transparent 25%),
+                    radial-gradient(circle at 85% 30%, rgba(255, 175, 204, 0.5), transparent 25%);
 }
 
 /* Glassmorphism Utilities */
@@ -34,7 +34,7 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(255, 175, 204, 0.2);
   border-radius: 24px;
 }
 
@@ -54,13 +54,13 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .orb-1 {
   width: 400px;
   height: 400px;
-  background: #ff4d85;
+  background: #ffc8dd;
   top: -100px;
   left: -100px;
 }
@@ -68,7 +68,7 @@ body {
 .orb-2 {
   width: 500px;
   height: 500px;
-  background: #8e2de2;
+  background: #ffafcc;
   bottom: -200px;
   right: -100px;
 }
@@ -76,9 +76,9 @@ body {
 .orb-3 {
   width: 300px;
   height: 300px;
-  background: #ff7eb3;
+  background: #ffb3c6;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.3;
+  opacity: 0.5;
 }

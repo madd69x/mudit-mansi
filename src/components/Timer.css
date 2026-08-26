@@ -6,12 +6,12 @@
 }
 
 .timer-heading {
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
   margin-bottom: 3rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: var(--text-main);
-  text-shadow: 0 0 20px rgba(255, 77, 133, 0.5);
+  text-shadow: 0 0 20px rgba(255, 143, 163, 0.4);
 }
 
 .time-blocks {
@@ -29,9 +29,9 @@
   justify-content: center;
   padding: 2rem 1.5rem;
   min-width: 120px;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  border-left: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255,255,255,0.9);
+  border-left: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 15px 35px rgba(255, 143, 163, 0.15);
   cursor: default;
 }
 
@@ -47,22 +47,20 @@
 }
 
 .number {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
-  background: linear-gradient(to right, var(--text-main), var(--text-muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   position: absolute;
 }
 
 .label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
@@ -74,6 +72,9 @@
     padding: 1.5rem 1rem;
   }
   .number {
+    font-size: 2.5rem;
+  }
+  .timer-heading {
     font-size: 2.5rem;
   }
 }

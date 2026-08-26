@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import anime from 'animejs';
 import { ChevronDown, Quote } from 'lucide-react';
 import Timer from './components/Timer';
+import LoveQuestion from './components/LoveQuestion';
 import Gallery from './components/Gallery';
 import './App.css';
 
@@ -114,6 +115,15 @@ function App() {
           transition={{ duration: 0.8, type: 'spring' }}
         >
           <Timer startDate={startDate} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, type: 'spring' }}
+        >
+          <LoveQuestion />
         </motion.div>
 
         <motion.div

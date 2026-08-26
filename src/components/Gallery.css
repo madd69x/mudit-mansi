@@ -5,11 +5,11 @@
 }
 
 .gallery-title {
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
   margin-bottom: 3rem;
   color: var(--text-main);
-  text-shadow: 0 0 20px rgba(255, 77, 133, 0.4);
+  text-shadow: 0 0 20px rgba(255, 143, 163, 0.3);
 }
 
 .gallery-grid {
@@ -22,16 +22,18 @@
 .gallery-item {
   position: relative;
   aspect-ratio: 4 / 5;
-  padding: 10px;
+  padding: 12px;
   transform-style: preserve-3d;
   cursor: pointer;
+  background: white; /* Polaroid style */
+  border: 1px solid rgba(255,255,255,0.9);
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 /* Dynamic Glare Effect */
@@ -41,8 +43,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 14px;
-  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 25%, transparent 30%);
+  border-radius: 8px;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.5) 25%, transparent 30%);
   z-index: 2;
   opacity: 0;
   transition: opacity 0.3s ease;
