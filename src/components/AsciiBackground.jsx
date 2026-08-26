@@ -15,9 +15,9 @@ const AsciiBackground = () => {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    const chars = ['<3', '*', '+', 'M', '&', 'xoxo', ':', ')'];
+    const word = "ILOVEYOU";
     const drops = [];
-    const columns = canvas.width / 20; // 20px font size
+    const columns = canvas.width / 20;
     
     for (let i = 0; i < columns; i++) {
       drops[i] = 1;
@@ -31,7 +31,7 @@ const AsciiBackground = () => {
       ctx.font = '15px monospace';
       
       for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
+        const text = word[Math.floor(drops[i]) % word.length];
         ctx.fillText(text, i * 20, drops[i] * 20);
         
         if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
