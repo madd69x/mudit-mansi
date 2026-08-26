@@ -5,6 +5,12 @@ import { ChevronDown, Quote } from 'lucide-react';
 import Timer from './components/Timer';
 import LoveQuestion from './components/LoveQuestion';
 import Gallery from './components/Gallery';
+import LoveLetter from './components/LoveLetter';
+import MusicPlayer from './components/MusicPlayer';
+import Timeline from './components/Timeline';
+import ReasonsCarousel from './components/ReasonsCarousel';
+import MemoriesMap from './components/MemoriesMap';
+import DateGenerator from './components/DateGenerator';
 import './App.css';
 
 const quotesList = [
@@ -125,6 +131,9 @@ function App() {
       </motion.section>
 
       <main className="content-section">
+        <LoveLetter />
+        <MusicPlayer />
+        
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,6 +143,8 @@ function App() {
           <Timer startDate={startDate} />
         </motion.div>
 
+        <Timeline />
+
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -142,6 +153,8 @@ function App() {
         >
           <LoveQuestion />
         </motion.div>
+
+        <ReasonsCarousel />
 
         <motion.div
           className="quote-container glass-panel"
@@ -168,6 +181,8 @@ function App() {
         </motion.div>
 
         <Gallery />
+        <MemoriesMap />
+        <DateGenerator />
       </main>
     </div>
   );

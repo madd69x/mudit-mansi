@@ -1,0 +1,58 @@
+.reasons-section {
+  padding: 4rem 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.inner-carousel {
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+}
+
+.reason-card {
+  min-width: 300px;
+  min-height: 200px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 25px rgba(255, 143, 163, 0.15);
+  pointer-events: none;
+}
+
+.reason-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-weight: 800;
+  color: var(--primary);
+  opacity: 0.5;
+  font-size: 1.5rem;
+}
+
+.reason-card p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.swipe-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
