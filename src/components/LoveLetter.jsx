@@ -10,11 +10,13 @@ const LoveLetter = () => {
     <div className="letter-section">
       <motion.div 
         className="envelope glass-panel"
-        whileHover={{ scale: 1.05, y: -10 }}
+        whileHover={{ scale: 1.05, y: -5 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
       >
-        <Mail size={48} color="var(--primary)" />
+        <div className="envelope-icon-container">
+          <Mail size={24} color="white" />
+        </div>
         <p>A message for you...</p>
       </motion.div>
 
