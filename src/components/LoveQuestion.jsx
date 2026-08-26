@@ -68,17 +68,29 @@ const LoveQuestion = () => {
           >
             <h2 className="love-title">Do you love me?</h2>
             <div className="buttons-container">
-              <motion.button 
-                className="btn-yes"
+              <motion.div 
+                className="pixel-heart-btn"
                 animate={{ scale: yesButtonScale }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 onClick={handleYesClick}
-                whileHover={{ scale: yesButtonScale * 1.05 }}
-                whileTap={{ scale: yesButtonScale * 0.95 }}
+                whileHover={{ scale: yesButtonScale * 1.1, filter: "brightness(1.2)" }}
+                whileTap={{ scale: yesButtonScale * 0.9 }}
+                style={{ cursor: 'pointer', width: '80px', height: '80px' }}
               >
-                <Heart size={20} fill="white" className="btn-icon" />
-                Yes!
-              </motion.button>
+                <svg width="100%" height="100%" viewBox="0 0 11 11" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="2" height="1" />
+                  <rect x="7" y="2" width="2" height="1" />
+                  <rect x="1" y="3" width="4" height="1" />
+                  <rect x="6" y="3" width="4" height="1" />
+                  <rect x="1" y="4" width="9" height="1" />
+                  <rect x="1" y="5" width="9" height="1" />
+                  <rect x="2" y="6" width="7" height="1" />
+                  <rect x="3" y="7" width="5" height="1" />
+                  <rect x="4" y="8" width="3" height="1" />
+                  <rect x="5" y="9" width="1" height="1" />
+                </svg>
+                <div style={{ textAlign: 'center', marginTop: '5px', fontWeight: 'bold', color: 'var(--primary)'}}>YES!</div>
+              </motion.div>
               
               <motion.button 
                 className="btn-no"

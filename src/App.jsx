@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import anime from 'animejs';
 import { ChevronDown, Quote } from 'lucide-react';
 import Timer from './components/Timer';
@@ -7,12 +7,29 @@ import LoveQuestion from './components/LoveQuestion';
 import Gallery from './components/Gallery';
 import './App.css';
 
+const quotesList = [
+  { text: "I look at you and see the rest of my life in front of my eyes.", author: "Together forever" },
+  { text: "I love you not only for what you are, but for what I am when I am with you.", author: "Roy Croft" },
+  { text: "If I know what love is, it is because of you.", author: "Hermann Hesse" },
+  { text: "You are my today and all of my tomorrows.", author: "Leo Christopher" },
+  { text: "Every love story is beautiful, but ours is my favorite.", author: "Mansi & Mudit" }
+];
+
 function App() {
   const startDate = new Date('2026-08-25T23:00:00');
   const orbsRef = useRef(null);
   const { scrollYProgress } = useScroll();
   const yHero = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacityHero = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+
+  useEffect(() => {
+    const quoteInterval = setInterval(() => {
+      setCurrentQuoteIndex((prev) => (prev + 1) % quotesList.length);
+    }, 6000);
+    return () => clearInterval(quoteInterval);
+  }, []);
 
   useEffect(() => {
     // Anime.js complex orb animations
@@ -134,18 +151,24 @@ function App() {
           transition={{ duration: 0.8 }}
         >
           <Quote className="quote-icon" size={48} />
-          <p className="quote-text">
-            "I look at you and see the rest of my life in front of my eyes."
-          </p>
-          <p className="quote-author">Together forever</p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuoteIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="quote-text">
+                "{quotesList[currentQuoteIndex].text}"
+              </p>
+              <p className="quote-author">{quotesList[currentQuoteIndex].author}</p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
 
         <Gallery />
       </main>
-
-      <footer>
-        <p>Made with ❤️ using Framer Motion & Anime.js</p>
-      </footer>
     </div>
   );
 }
