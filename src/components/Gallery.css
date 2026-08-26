@@ -1,51 +1,64 @@
 .gallery-section {
   width: 100%;
-  max-width: 1000px;
-  margin: 4rem auto;
   padding: 0 2rem;
   text-align: center;
 }
 
-.gallery-section h2 {
-  font-family: 'Outfit', sans-serif;
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-instruction {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+.gallery-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--text-main);
+  text-shadow: 0 0 20px rgba(255, 77, 133, 0.4);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  perspective: 1000px;
 }
 
 .gallery-item {
   position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 1 / 1;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.3);
+  aspect-ratio: 4 / 5;
+  padding: 10px;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  border-radius: 14px;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.1);
+/* Dynamic Glare Effect */
+.glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 25%, transparent 30%);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .glare {
+  opacity: 1;
+  animation: glareMove 1.5s infinite linear;
+}
+
+@keyframes glareMove {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

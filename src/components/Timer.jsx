@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { differenceInYears, differenceInMonths, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Timer.css';
+
+const TimerBlock = ({ value, label }) => (
+  <motion.div 
+    className="time-block glass-panel"
+    whileHover={{ y: -10, scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    <div className="number-wrapper">
+      <AnimatePresence mode="popLayout">
+        <motion.span
+          key={value}
+          initial={{ y: 20, opacity: 0, rotateX: -90 }}
+          animate={{ y: 0, opacity: 1, rotateX: 0 }}
+          exit={{ y: -20, opacity: 0, rotateX: 90 }}
+          transition={{ duration: 0.4, type: "spring" }}
+          className="number"
+        >
+          {String(value).padStart(2, '0')}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+    <span className="label">{label}</span>
+  </motion.div>
+);
 
 const Timer = ({ startDate }) => {
   const [timeTogether, setTimeTogether] = useState({
-    years: 0,
-    months: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0,
   });
 
   useEffect(() => {
@@ -47,14 +67,14 @@ const Timer = ({ startDate }) => {
 
   return (
     <div className="timer-container">
-      <h2>Time Together</h2>
+      <h2 className="timer-heading">Time since we started</h2>
       <div className="time-blocks">
-        {timeTogether.years > 0 && <div className="time-block"><span className="number">{timeTogether.years}</span><span className="label">Years</span></div>}
-        {timeTogether.months > 0 && <div className="time-block"><span className="number">{timeTogether.months}</span><span className="label">Months</span></div>}
-        <div className="time-block"><span className="number">{timeTogether.days}</span><span className="label">Days</span></div>
-        <div className="time-block"><span className="number">{timeTogether.hours}</span><span className="label">Hours</span></div>
-        <div className="time-block"><span className="number">{timeTogether.minutes}</span><span className="label">Minutes</span></div>
-        <div className="time-block"><span className="number">{timeTogether.seconds}</span><span className="label">Seconds</span></div>
+        {timeTogether.years > 0 && <TimerBlock value={timeTogether.years} label="Years" />}
+        {timeTogether.months > 0 && <TimerBlock value={timeTogether.months} label="Months" />}
+        <TimerBlock value={timeTogether.days} label="Days" />
+        <TimerBlock value={timeTogether.hours} label="Hours" />
+        <TimerBlock value={timeTogether.minutes} label="Minutes" />
+        <TimerBlock value={timeTogether.seconds} label="Seconds" />
       </div>
     </div>
   );
