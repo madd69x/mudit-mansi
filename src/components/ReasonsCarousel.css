@@ -7,17 +7,18 @@
 .carousel {
   cursor: grab;
   overflow: hidden;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .inner-carousel {
   display: flex;
   width: max-content;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .reason-card {
-  min-width: 300px;
+  width: 80vw;
+  max-width: 350px;
   min-height: 200px;
   padding: 2.5rem;
   display: flex;
@@ -29,6 +30,7 @@
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 25px rgba(255, 143, 163, 0.15);
   pointer-events: none;
+  border-radius: 16px;
 }
 
 .reason-number {
@@ -42,7 +44,7 @@
 }
 
 .reason-card p {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
   font-weight: 600;
   color: var(--text-main);
   line-height: 1.6;
@@ -55,4 +57,16 @@
   letter-spacing: 1px;
   margin-top: 1rem;
   opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .inner-carousel {
+    gap: 2rem;
+  }
+  .reason-card {
+    width: 350px;
+  }
+  .carousel {
+    padding: 2rem;
+  }
 }

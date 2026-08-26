@@ -1,14 +1,15 @@
 .timeline-section {
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .section-title {
   text-align: center;
   font-family: 'Inter', sans-serif;
   font-weight: 800;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: var(--text-main);
   margin-bottom: 4rem;
 }
@@ -21,7 +22,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 30px;
+  left: 20px;
   height: 100%;
   width: 4px;
   background: var(--secondary);
@@ -31,12 +32,12 @@
 .timeline-item {
   position: relative;
   margin-bottom: 3rem;
-  padding-left: 80px;
+  padding-left: 60px;
 }
 
 .timeline-icon {
   position: absolute;
-  left: 12px;
+  left: 0;
   top: 0;
   width: 40px;
   height: 40px;
@@ -65,14 +66,20 @@
   margin: 0.5rem 0;
   color: var(--text-main);
   font-weight: 700;
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
 }
 
 .timeline-content p {
   color: #555;
   line-height: 1.5;
+  font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 @media (min-width: 768px) {
+  .timeline-section {
+    padding: 4rem 2rem;
+  }
+  
   .timeline-container::before {
     left: 50%;
     transform: translateX(-50%);
