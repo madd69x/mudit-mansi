@@ -114,7 +114,9 @@ function App() {
           animate="visible"
         >
           <motion.h1 className="hero-title" variants={itemVariants}>
-            Mudit <span className="ampersand">&</span> Mansi
+            Mudit <br/>
+            <span className="ampersand">&</span> <br/>
+            Mansi
           </motion.h1>
           <motion.p className="hero-subtitle" variants={itemVariants}>
             ILYYYY MANSIIII
