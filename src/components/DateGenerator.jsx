@@ -4,14 +4,14 @@ import { Sun, Ticket, Coffee, BookOpen, Palette, Camera, Trees, IceCream } from 
 import './DateGenerator.css';
 
 const dateIdeas = [
-  { text: "Picnic in the Park 🧺", icon: <Trees size={32} /> },
-  { text: "Coffee Shop Hopping ☕", icon: <Coffee size={32} /> },
-  { text: "Museum or Art Gallery Date 🖼️", icon: <Ticket size={32} /> },
-  { text: "Book Store Browsing 📚", icon: <BookOpen size={32} /> },
-  { text: "Pottery or Art Class 🎨", icon: <Palette size={32} /> },
-  { text: "Ice Cream Walk in the Sun ☀️", icon: <IceCream size={32} /> },
-  { text: "Zoo or Aquarium Visit 🐠", icon: <Camera size={32} /> },
-  { text: "Botanical Garden Stroll 🌷", icon: <Sun size={32} /> }
+  { text: "Picnic in the Park", icon: <Trees size={32} /> },
+  { text: "Coffee Shop Hopping", icon: <Coffee size={32} /> },
+  { text: "Museum or Art Gallery Date", icon: <Ticket size={32} /> },
+  { text: "Book Store Browsing", icon: <BookOpen size={32} /> },
+  { text: "Pottery or Art Class", icon: <Palette size={32} /> },
+  { text: "Ice Cream Walk in the Sun", icon: <IceCream size={32} /> },
+  { text: "Zoo or Aquarium Visit", icon: <Camera size={32} /> },
+  { text: "Botanical Garden Stroll", icon: <Sun size={32} /> }
 ];
 
 const DateGenerator = () => {

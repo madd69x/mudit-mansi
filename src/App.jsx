@@ -11,6 +11,7 @@ import Timeline from './components/Timeline';
 import ReasonsCarousel from './components/ReasonsCarousel';
 import MemoriesMap from './components/MemoriesMap';
 import DateGenerator from './components/DateGenerator';
+import AsciiBackground from './components/AsciiBackground';
 import './App.css';
 
 const quotesList = [
@@ -93,6 +94,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <AsciiBackground />
       {/* Animated Orbs Background */}
       <div className="orbs-container" ref={orbsRef}>
         <div className="orb orb-1"></div>

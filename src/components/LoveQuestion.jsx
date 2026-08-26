@@ -46,7 +46,7 @@ const LoveQuestion = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="celebration"
           >
-            <h2 className="love-title">I knew it! I love you too! ❤️</h2>
+            <h2 className="love-title">I knew it! I love you too!</h2>
             <motion.div 
               animate={{ 
                 scale: [1, 1.2, 1],

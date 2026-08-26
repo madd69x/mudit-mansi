@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import './ReasonsCarousel.css';
 
 const reasons = [
-  "You're hot af. 🔥",
-  "You're cool af, ekdum nonchalant. 😎",
-  "You're my vibe, I can talk to you for hours. 🗣️",
-  "You're born to be mineeeee. 💖",
+  "You're hot af.",
+  "You're cool af, ekdum nonchalant.",
+  "You're my vibe, I can talk to you for hours.",
+  "You're born to be mineeeee.",
 ];
 
 const ReasonsCarousel = () => {
