@@ -22,7 +22,7 @@
 }
 
 .hero-title {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Inter', sans-serif;
   font-size: 8vw;
   font-weight: 700;
   color: var(--text-main);
@@ -33,7 +33,7 @@
 
 .ampersand {
   color: var(--primary);
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   margin: 0 15px;
 }
@@ -101,7 +101,7 @@
 }
 
 .quote-text {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Inter', sans-serif;
   font-size: 3rem;
   line-height: 1.4;
   margin-bottom: 2rem;

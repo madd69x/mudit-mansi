@@ -92,7 +92,7 @@ function App() {
             Mudit <span className="ampersand">&</span> Mansi
           </motion.h1>
           <motion.p className="hero-subtitle" variants={itemVariants}>
-            A love story in motion
+            ILYYYY MANSIIII
           </motion.p>
         </motion.div>
         

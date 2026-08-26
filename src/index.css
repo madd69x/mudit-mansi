@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
   --primary: #ff8fa3;
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text-main);
   background-color: var(--bg-dark);
   min-height: 100vh;
