@@ -31,6 +31,9 @@ const Gallery = () => {
       }));
       setPhotos(fetchedPhotos);
       setLoading(false);
+    }, (error) => {
+      console.error("Error fetching photos from Firebase:", error);
+      setLoading(false);
     });
 
     return () => unsubscribe();
