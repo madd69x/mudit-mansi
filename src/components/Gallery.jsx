@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Unlock, Upload, Trash2, ImagePlus } from 'lucide-react';
-import { db, storage } from '../firebase';
+import { db } from '../firebase';
 import { collection, onSnapshot, addDoc, deleteDoc, doc, serverTimestamp, query, orderBy } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import photo1 from '../assets/photo1.jpg';
 import photo2 from '../assets/photo2.jpg';
 import './Gallery.css';
+
+const IMGBB_API_KEY = '0ed0f92a74597fa27d5cb3c4cb499f26';
 
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
@@ -56,19 +57,26 @@ const Gallery = () => {
 
     setUploading(true);
     try {
-      // Create a unique file name
-      const fileRef = ref(storage, `gallery/${Date.now()}_${uploadFile.name}`);
+      // 1. Upload to ImgBB
+      const formData = new FormData();
+      formData.append('image', uploadFile);
+
+      const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+        method: 'POST',
+        body: formData
+      });
       
-      // Upload to Firebase Storage
-      await uploadBytes(fileRef, uploadFile);
+      const data = await response.json();
       
-      // Get the public URL
-      const url = await getDownloadURL(fileRef);
-      
-      // Save the URL to Firestore Database
+      if (!data.success) {
+        throw new Error("ImgBB upload failed: " + data.error.message);
+      }
+
+      const imageUrl = data.data.url;
+
+      // 2. Save the URL to Firestore Database
       await addDoc(collection(db, 'photos'), {
-        url: url,
-        storagePath: fileRef.fullPath,
+        url: imageUrl,
         createdAt: serverTimestamp()
       });
 
@@ -83,18 +91,12 @@ const Gallery = () => {
     }
   };
 
-  const handleDelete = async (photoId, storagePath) => {
-    if (!window.confirm("Are you sure you want to delete this photo?")) return;
+  const handleDelete = async (photoId) => {
+    if (!window.confirm("Are you sure you want to delete this photo from the gallery?")) return;
 
     try {
-      // Delete from Firestore Database
+      // Delete from Firestore Database (this instantly removes it from the website)
       await deleteDoc(doc(db, 'photos', photoId));
-      
-      // Delete from Storage if we have the path
-      if (storagePath) {
-        const fileRef = ref(storage, storagePath);
-        await deleteObject(fileRef);
-      }
     } catch (error) {
       console.error("Error deleting image:", error);
       alert("Failed to delete image.");
@@ -234,7 +236,7 @@ const Gallery = () => {
                   className="delete-btn"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleDelete(photo.id, photo.storagePath);
+                    handleDelete(photo.id);
                   }}
                   title="Delete Photo"
                 >

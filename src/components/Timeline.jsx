@@ -21,6 +21,12 @@ const milestones = [
     title: 'Officially Ours',
     desc: 'The exact moment we officially started dating. Best night ever.',
     icon: <Heart size={24} fill="white" color="white" />
+  },
+  {
+    date: 'August 27, 2026',
+    title: 'Vadapav & Ice Cream',
+    desc: 'Vadapav at Swagat, followed by ice creams at Chill Point.',
+    icon: <Utensils size={24} color="white" />
   }
 ];
 
