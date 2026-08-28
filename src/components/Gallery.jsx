@@ -19,7 +19,7 @@ const Gallery = () => {
   const [password, setPassword] = useState('');
   
   // Upload State
-  const [uploadFile, setUploadFile] = useState(null);
+  const [imageUrlInput, setImageUrlInput] = useState('');
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -53,39 +53,20 @@ const Gallery = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!uploadFile) return;
+    if (!imageUrlInput.trim()) return;
 
     setUploading(true);
     try {
-      // 1. Upload to ImgBB
-      const formData = new FormData();
-      formData.append('image', uploadFile);
-
-      const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
-        method: 'POST',
-        body: formData
-      });
-      
-      const data = await response.json();
-      
-      if (!data.success) {
-        throw new Error("ImgBB upload failed: " + data.error.message);
-      }
-
-      const imageUrl = data.data.url;
-
-      // 2. Save the URL to Firestore Database
+      // 2. Save the URL directly to Firestore Database
       await addDoc(collection(db, 'photos'), {
-        url: imageUrl,
+        url: imageUrlInput.trim(),
         createdAt: serverTimestamp()
       });
 
-      setUploadFile(null);
-      // reset file input
-      document.getElementById('file-upload').value = '';
+      setImageUrlInput('');
     } catch (error) {
-      console.error("Error uploading image:", error);
-      alert("Failed to upload image. Please check console.");
+      console.error("Error saving image link:", error);
+      alert("Failed to save image link. Please check console.");
     } finally {
       setUploading(false);
     }
@@ -185,20 +166,22 @@ const Gallery = () => {
           animate={{ opacity: 1, scale: 1 }}
           onSubmit={handleUpload}
         >
-          <h3><ImagePlus size={20} style={{ display: 'inline', marginBottom: '-4px' }} /> Upload New Memory</h3>
+          <h3><ImagePlus size={20} style={{ display: 'inline', marginBottom: '-4px' }} /> Add New Memory</h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Paste a direct image link (e.g. from Discord, Imgur, etc.)</p>
           <input 
-            type="file" 
-            id="file-upload"
-            accept="image/*"
-            onChange={(e) => setUploadFile(e.target.files[0])}
-            className="file-input"
+            type="text" 
+            placeholder="https://..."
+            value={imageUrlInput}
+            onChange={(e) => setImageUrlInput(e.target.value)}
+            className="password-input"
+            style={{ width: '100%', maxWidth: '400px' }}
           />
           <button 
             type="submit" 
             className="upload-btn"
-            disabled={!uploadFile || uploading}
+            disabled={!imageUrlInput || uploading}
           >
-            {uploading ? "Uploading..." : <><Upload size={16} /> Upload Photo</>}
+            {uploading ? "Saving..." : <><Upload size={16} /> Add Photo</>}
           </button>
         </motion.form>
       )}
