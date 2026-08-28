@@ -6,15 +6,90 @@
   margin: 0 auto;
 }
 
+.gallery-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
 .gallery-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: var(--text-main);
   text-shadow: 0 0 20px rgba(255, 143, 163, 0.3);
   text-align: center;
   width: 100%;
+}
+
+.admin-lock-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.admin-lock-btn:hover {
+  opacity: 1;
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.admin-controls {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 143, 163, 0.3);
+}
+
+.password-input, .file-input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+}
+
+.password-input:focus {
+  border-color: var(--primary);
+}
+
+.upload-btn, .login-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+
+.upload-btn:hover:not(:disabled), .login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 143, 163, 0.4);
+}
+
+.upload-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .gallery-grid {
@@ -45,6 +120,30 @@
   border-radius: 8px;
 }
 
+.delete-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  background: red;
+}
+
 /* Dynamic Glare Effect */
 .glare {
   position: absolute;
@@ -72,6 +171,13 @@
   100% {
     background-position: 200% 0;
   }
+}
+
+.loading-text {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 2rem 0;
 }
 
 @media (min-width: 768px) {
